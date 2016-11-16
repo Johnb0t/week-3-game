@@ -3,66 +3,19 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Psychic Game</title>
+	<link rel="stylesheet" type="text/css" href="assets\style.css">
 </head>
 <body>
 	<div id="game">
 		<h1>The Psychic Game</h1>
-		<p>Guess what letter I'm thinking of</p>
-		<p>wins: 0</p>
-		<p>losses: 0</p>
+		<p>Guess what letter I'm thinking of:</p>
+		<p>Wins: 0</p>
+		<p>Losses: 0</p>
 		<p>Guesses Left: 9</p>
 		<p>Your guesses so far: </p>
 	</div>
 
-	<script type="text/javascript">
-		//Array for possible psychic choices
-		var psyChoices = ["a,", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-		//Variables for tracking Wins, Losses, Guesses Remaining, Guesses so far
-
-		var wins = 0;
-		var losses = 0;
-		var guessesLeft = 9;
-		var userGuessed = 0;
-
-		//Set the psyPick variable equal to a random choice from the psyChoices array
-		var psyPick = psyChoices[Math.floor(Math.random() * psyChoices.length)];
-
-		//When a user presses a key it will run the following function
-		document.onkeyup = function(event) {
-
-			//Determine when a key is pressed, make it lowercase, and set it to the userGuess variable
-			var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-
-			//Set the Win/Lose Coniditons
-			if (userGuess === psyPick) {
-				wins++;
-			}else if (userGuess != psyPick) {
-				guessesLeft--;
-			}
-			if (guessesLeft === 0) {
-				losses++;
-			}
-			//return;
-
-			/*TO BE DONE:
-			Reset guessesLeft
-			Restart Function and have psyPick reset 
-			Print Guessed Letters on the screen
-				*/
-
-
-		//Create HTML to be injected
-		var html = "<h1> The Psychic Game</h1>" +
-		"<p> Guess what letter I'm thinking of" +
-		"<p>wins: " + wins + "</p>" +
-		"<p>losses: " + losses + "</p>" +
-		"<p>Guesses Left: " + guessesLeft + "</p>" +
-		"<p>Your guesses so far: " + userGuessed + "</p>";
-
-		//Inject html
-		document.querySelector("#game").innerHTML = html;
-		}
-	</script>
+	<script type="text/javascript" src="assets\psychic.js"></script>
 
 </body>
 </html>
